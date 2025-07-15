@@ -114,6 +114,7 @@ const Section = styled.section`
   align-items: center;
   padding: 5rem 5%;
   background: ${({ theme }) => theme.bgLight};
+  scroll-margin-top: 80px;
 
   @media (max-width: 768px) {
     padding: 3rem 5%;

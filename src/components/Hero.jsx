@@ -70,6 +70,7 @@ const Section = styled.section`
   align-items: center;
   padding: 0 5%;
   padding-top: 5rem;
+  scroll-margin-top: 80px;
 
   @media (max-width: 768px) {
     padding-top: 7rem;

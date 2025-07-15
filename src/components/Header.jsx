@@ -8,26 +8,26 @@ const Header = ({ darkMode, setDarkMode }) => {
   const [mobileMenu, setMobileMenu] = useState(false);
 
   useEffect(() => {
-    window.addEventListener('scroll', () => {
+    window.addEventListener("scroll", () => {
       setScroll(window.scrollY > 50);
     });
   }, []);
 
   const navLinks = [
-    { name: 'Home', link: '#home' },
-    { name: 'About', link: '#about' },
-    { name: 'Experience', link: '#experience' },
-    { name: 'Projects', link: '#projects' },
-    { name: 'Contact', link: '#contact' },
+    { name: "Home", link: "#home" },
+    { name: "About", link: "#about" },
+    { name: "Experience", link: "#experience" },
+    { name: "Projects", link: "#projects" },
+    { name: "Contact", link: "#contact" },
   ];
 
   return (
-    <Nav scroll={scroll}>
+    <Nav $scroll={scroll}>
       <Logo href="#home">
         <span>{"<"}</span>Portfolio<span>{"/>"}</span>
       </Logo>
 
-      <NavLinks mobileMenu={mobileMenu}>
+      <NavLinks $mobileMenu={mobileMenu}>
         {navLinks.map((link, i) => (
           <li key={i}>
             <NavLink
@@ -68,9 +68,10 @@ const Nav = styled.header`
   justify-content: space-between;
   align-items: center;
   z-index: 1000;
-  background: ${({ scroll, theme }) => scroll ? theme.bgLight : 'transparent'};
-  backdrop-filter: ${({ scroll }) => scroll ? 'blur(10px)' : 'none'};
-  box-shadow: ${({ scroll }) => scroll ? '0 5px 30px rgba(0, 0, 0, 0.1)' : 'none'};
+  background: ${({ $scroll, theme }) => ($scroll ? theme.bgLight : "transparent")};
+  backdrop-filter: ${({ $scroll }) => ($scroll ? "blur(10px)" : "none")};
+  box-shadow: ${({ $scroll }) =>
+    $scroll ? "0 5px 30px rgba(0, 0, 0, 0.1)" : "none"};
   transition: all 0.3s ease;
 
   @media (max-width: 768px) {
@@ -101,7 +102,7 @@ const NavLinks = styled.ul`
   @media (max-width: 768px) {
     position: fixed;
     top: 0;
-    left: ${({ mobileMenu }) => mobileMenu ? '0' : '-100%'};
+    left: ${({ $mobileMenu }) => ($mobileMenu ? "0" : "-100%")};
     width: 80%;
     height: 100vh;
     background: ${({ theme }) => theme.bgLight};
@@ -125,7 +126,7 @@ const NavLink = styled(motion.a)`
   }
 
   &::after {
-    content: '';
+    content: "";
     position: absolute;
     bottom: -5px;
     left: 0;

@@ -97,6 +97,7 @@ const Section = styled.section`
   display: flex;
   align-items: center;
   padding: 5rem 5%;
+  scroll-margin-top: 80px;
 
   @media (max-width: 768px) {
     padding: 3rem 5%;
